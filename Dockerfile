@@ -1,17 +1,34 @@
-FROM ubuntu:bionic-20190612
+FROM alpine:latest
+
 LABEL maintainer="vyurchenko1986@gmail.com"
 
-ENV SQUID_VERSION=3.5.27 \
-    SQUID_CACHE_DIR=/var/spool/squid \
-    SQUID_LOG_DIR=/var/log/squid \
-    SQUID_USER=owner
+#set enviromental values for certificate CA generation
+ENV CN=squid.local \
+    O=squid \
+    OU=squid \
+    C=US
 
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* \
- && rm -rf /var/lib/apt/lists/*
+#set proxies for alpine apk package manager
+ARG all_proxy
 
-COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+ENV http_proxy=$all_proxy \
+    https_proxy=$all_proxy
 
-EXPOSE 3128/tcp
-ENTRYPOINT ["/sbin/entrypoint.sh"]
+RUN apk add --no-cache \
+    squid=3.5.27-r0 \
+    openssl=1.0.2p-r0 \
+    ca-certificates && \
+    update-ca-certificates
+
+COPY start.sh /usr/local/bin/
+COPY openssl.cnf.add /etc/ssl
+COPY conf/squid*.conf /etc/squid/
+
+RUN cat /etc/ssl/openssl.cnf.add >> /etc/ssl/openssl.cnf
+
+RUN chmod +x /usr/local/bin/start.sh
+
+EXPOSE 3128
+EXPOSE 4128
+
+ENTRYPOINT ["/usr/local/bin/start.sh"]
