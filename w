@@ -54,3 +54,5 @@ tech-net.pp.ua
 
 
 ------
+В том же конфигурационном файле к директиве http_port добавьте опцию tcpkeepalive:
+http_port 3128 tcpkeepalive=60,30,3
