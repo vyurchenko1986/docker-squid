@@ -1,0 +1,56 @@
+squid 4.13
+Alpine 3.12.3
+alpine:3.12.3
+
+docker run -ti alpine:3.12.3
+
+FROM alpine:3.12.3
+LABEL maintainer="vyurchenko1986@gmail.com"
+RUN apk add --no-cache \
+    squid=3.5.27-r0 \
+    openssl=1.0.2p-r0 \
+    ca-certificates && \
+    update-ca-certificates
+
+docker run -ti alpine:3.12.3
+apk update && \
+apk add --no-cache squid=4.13-r0 openssl mc tree nano
+
+
+https://wiki.yola.ru/squid/squid
+https://veesp.com/ru/blog/squid-authentication/
+https://veesp.com/ru/blog/how-to-setup-squid-on-ubuntu/
+
+
+docker run -p 3128:3128 -p 4128:4128 -ti alpine:3.12.3
+apk update && \
+apk add --no-cache squid=4.13-r0 apache2-utils openssl mc tree nano
+
+htpasswd -c /etc/squid/squidusers vyurchenko
+chmod 440 /etc/squid/squidusers
+chown squid:squid /etc/squid/squidusers
+
+cp /etc/squid/squid.conf /etc/squid/squid.conf.old
+nano /etc/squid/squid.conf
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/squidusers
+auth_param basic children 3
+auth_param basic realm Corporate proxy server Squid
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive off
+auth_param basic blankpassword off
+authenticate_cache_garbage_interval 1 hour
+authenticate_ttl 1 hour
+authenticate_ip_ttl 10 seconds
+
+acl basic-auth proxy_auth REQUIRED
+http_access allow basic-auth
+
+SQUID=$(/usr/bin/which squid)
+exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
+
+tech-net.pp.ua
+/usr/libexec/squid/security_file_certgen -c -s /var/cache/squid/ssl_db -M 4MB
+
+
+------
