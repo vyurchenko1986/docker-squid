@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM  alpine:3.12.3
 
 LABEL maintainer="vyurchenko1986@gmail.com"
 
@@ -15,8 +15,8 @@ ENV http_proxy=$all_proxy \
     https_proxy=$all_proxy
 
 RUN apk add --no-cache \
-    squid=3.5.27-r0 \
-    openssl=1.0.2p-r0 \
+    squid=4.13-r0 \
+    openssl \
     ca-certificates && \
     update-ca-certificates
 
