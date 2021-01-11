@@ -64,3 +64,6 @@ RUN apk upgrade
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apk add --update tzdata
 RUN rm -rf /var/cache/apk/*
+
+----
+#!/usr/bin/env bash
