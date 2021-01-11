@@ -29,6 +29,6 @@ RUN cat /etc/ssl/openssl.cnf.add >> /etc/ssl/openssl.cnf
 RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE 3128
-#EXPOSE 4128
+EXPOSE 4128
 
 ENTRYPOINT ["/usr/local/bin/start.sh"]
