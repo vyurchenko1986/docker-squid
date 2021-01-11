@@ -56,3 +56,11 @@ tech-net.pp.ua
 ------
 В том же конфигурационном файле к директиве http_port добавьте опцию tcpkeepalive:
 http_port 3128 tcpkeepalive=60,30,3
+
+
+ENV TZ=Europe/Kiev
+RUN apk update
+RUN apk upgrade
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apk add --update tzdata
+RUN rm -rf /var/cache/apk/*
