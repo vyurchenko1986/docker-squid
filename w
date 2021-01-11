@@ -69,3 +69,5 @@ RUN rm -rf /var/cache/apk/*
 #!/usr/bin/env bash
 
 docker exec -i -t 6ee6223a3ce3 bash
+
+MAINTAINER Valery Yurchenko "vyurchenko1986@gmail.com"
