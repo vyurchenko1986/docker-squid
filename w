@@ -77,3 +77,6 @@ TMPDIR="$(mktemp -d)"
 cd $TMPDIR
 ...
 rm -rf $TMPDIR
+
+----
+rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
