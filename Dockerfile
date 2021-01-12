@@ -1,5 +1,6 @@
 FROM  alpine:3.12.3
 
+MAINTAINER PrivateBin <support@privatebin.org>
 LABEL maintainer="vyurchenko1986@gmail.com"
 
 #set enviromental values for certificate CA generation
