@@ -9,4 +9,5 @@ RUN apk update && upgrade && \
     apk add --update tzdata \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
-EXPOSE 3128/tcp
+#EXPOSE 3128/tcp
+EXPOSE 3129/tcp
