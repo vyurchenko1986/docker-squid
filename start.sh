@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -e
 
@@ -57,3 +57,7 @@ run() {
 }
 
 run
+tech-net.pp.ua
+/usr/libexec/squid/security_file_certgen -c -s /var/cache/squid/ssl_db -M 4MB
+/usr/lib/squid/security_file_certgen -c -s /var/cache/squid/ssl_db -M 4MB
+/usr/lib/squid/security_file_certgen -c -s  /var/lib/ssl_db
