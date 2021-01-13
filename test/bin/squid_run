@@ -3,6 +3,7 @@
 set -e
 
 CHOWN=$(/usr/bin/which chown)
+CHMOD=$(/usr/bin/which chmod)
 SQUID=$(/usr/bin/which squid)
 
 prepare_folders() {
@@ -13,6 +14,13 @@ prepare_folders() {
 	"$CHOWN" -R squid:squid /etc/squid-cert/
 	"$CHOWN" -R squid:squid /var/cache/squid/
 	"$CHOWN" -R squid:squid /var/log/squid/
+
+	touch /etc/squid/squidusers
+	htpasswd -c /etc/squid/squidusers vyurchenko
+	"$CHMOD" 440 /etc/squid/squidusers
+	"$CHOWN" -R squid:squid /etc/squid/squidusers
+
+	cp /etc/squid/squid.conf /etc/squid/squid.conf.old
 }
 
 run() {
