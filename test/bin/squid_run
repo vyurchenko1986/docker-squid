@@ -7,6 +7,7 @@ CHMOD=$(/usr/bin/which chmod)
 MKDIR=$(/usr/bin/which mkdir)
 TOUCH=$(/usr/bin/which touch)
 CP=$(/usr/bin/which cp)
+
 HTPASSWD=$(/usr/bin/which htpasswd)
 SQUID=$(/usr/bin/which squid)
 
