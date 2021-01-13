@@ -19,5 +19,6 @@ EXPOSE 3129/tcp
 
 CMD ["squid_run"]
 
+ADD ./config /etc/squid
 ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
