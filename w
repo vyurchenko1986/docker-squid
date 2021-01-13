@@ -26,6 +26,7 @@ docker run -p 3128:3128 -p 4128:4128 -ti alpine:3.12.3
 apk update && \
 apk add --no-cache squid=4.13-r0 apache2-utils openssl mc tree nano
 
+touch /etc/squid/squidusers
 htpasswd -c /etc/squid/squidusers vyurchenko
 chmod 440 /etc/squid/squidusers
 chown squid:squid /etc/squid/squidusers
@@ -80,3 +81,8 @@ rm -rf $TMPDIR
 
 ----
 rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
+
+---
+docker build -t squid_test .
+docker volume create squid_data
+docker run -d -p 9012:9012 --name=squid --restart=always -v squid_data:/etc/squid squid_test
