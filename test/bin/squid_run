@@ -10,7 +10,7 @@ CP=$(/usr/bin/which cp)
 
 HTPASSWD=$(/usr/bin/which htpasswd)
 SQUID=$(/usr/bin/which squid)
-PASSWORD=`tr -dc a-z0-9_ < /dev/urandom | head -c 10`
+PASSWORD=`tr -dc a-z0-9_ < /dev/urandom | head -c 16`
 
 prepare_folders() {
 	echo "Preparing folders..."
@@ -21,20 +21,28 @@ prepare_folders() {
 	#"$CHOWN" -R squid:squid /var/cache/squid/
 	#"$CHOWN" -R squid:squid /var/log/squid/
 
-	"$TOUCH" /etc/squid/squidusers
-	"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
-	"$CHMOD" 440 /etc/squid/squidusers
-	echo Password set to: $PASSWORD > /etc/squid/squidusers.txt
-	"$CHMOD" 440 /etc/squid/squidusers.txt
-
 	"$CP" /etc/squid/squid.conf /etc/squid/squid.conf.old
 	"$CHOWN" -R squid:squid /etc/squid/
 
 }
 
+create_users_password() {
+	if [ ! -f /etc/squid/squidusers ]; then
+		echo "Creating users password..."
+		"$TOUCH" /etc/squid/squidusers
+		"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
+		"$CHMOD" 440 /etc/squid/squidusers
+		echo Password set to: $PASSWORD > /etc/squid/squidusers.txt
+		"$CHMOD" 440 /etc/squid/squidusers.txt
+	else
+		echo "Users password found..."
+	fi
+}
+
 run() {
 	echo "Starting squid..."
 	prepare_folders
+	create_users_password
 	exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
 }
 
