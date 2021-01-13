@@ -14,16 +14,16 @@ PASSWORD=`tr -dc a-z0-9_ < /dev/urandom | head -c 10`
 
 prepare_folders() {
 	echo "Preparing folders..."
-	"$MKDIR" -p /etc/squid-cert/
-	"$MKDIR" -p /var/cache/squid/
-	"$MKDIR" -p /var/log/squid/
-	"$CHOWN" -R squid:squid /etc/squid-cert/
-	"$CHOWN" -R squid:squid /var/cache/squid/
-	"$CHOWN" -R squid:squid /var/log/squid/
+	#"$MKDIR" -p /etc/squid-cert/
+	#"$MKDIR" -p /var/cache/squid/
+	#"$MKDIR" -p /var/log/squid/
+	#"$CHOWN" -R squid:squid /etc/squid-cert/
+	#"$CHOWN" -R squid:squid /var/cache/squid/
+	#"$CHOWN" -R squid:squid /var/log/squid/
+	"$CHOWN" -R squid:squid /etc/squid/
 
 	"$TOUCH" /etc/squid/squidusers
-	echo Password set to: $PASSWORD
-	"$HTPASSWD" -cb /etc/squid/squidusers vyurchenko $PASSWORD
+	"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
 	"$CHMOD" 440 /etc/squid/squidusers
 	"$CHOWN" -R squid:squid /etc/squid/squidusers
 
@@ -34,6 +34,7 @@ run() {
 	echo "Starting squid..."
 	prepare_folders
 	exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
+	echo Password set to: $PASSWORD
 }
 
 run
