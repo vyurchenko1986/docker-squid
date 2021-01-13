@@ -83,6 +83,7 @@ rm -rf $TMPDIR
 rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 ---
+ENV SQUID_DATA=squid_data
+docker volume create --name $SQUID_DATA
 docker build -t squid_test .
-docker volume create squid_data
-docker run -d -p 9012:9012 --name=squid --restart=always -v squid_data:/etc/squid squid_test
+docker run -d -p 9012:9012 --name=squid --restart=always -v $SQUID_DATA:/etc/squid squid_test
