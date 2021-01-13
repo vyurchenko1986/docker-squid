@@ -9,10 +9,15 @@ RUN apk update && apk upgrade && \
     apk add --update tzdata && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
-#EXPOSE 3128/tcp
+# Needed by scripts
+ENV SQUID=/etc/squid
+
+VOLUME ["/etc/squid"]
+
+# Internally uses port 3129/tcp
 EXPOSE 3129/tcp
 
-COPY start.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/start.sh
+CMD ["squid_run"]
 
-ENTRYPOINT ["/usr/local/bin/start.sh"]
+ADD ./bin /usr/local/bin
+RUN chmod a+x /usr/local/bin/*
