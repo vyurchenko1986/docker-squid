@@ -20,21 +20,22 @@ prepare_folders() {
 	#"$CHOWN" -R squid:squid /etc/squid-cert/
 	#"$CHOWN" -R squid:squid /var/cache/squid/
 	#"$CHOWN" -R squid:squid /var/log/squid/
-	"$CHOWN" -R squid:squid /etc/squid/
 
 	"$TOUCH" /etc/squid/squidusers
 	"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
 	"$CHMOD" 440 /etc/squid/squidusers
-	"$CHOWN" -R squid:squid /etc/squid/squidusers
+	echo Password set to: $PASSWORD > /etc/squid/squidusers.txt
+	"$CHMOD" 440 /etc/squid/squidusers.txt
 
 	"$CP" /etc/squid/squid.conf /etc/squid/squid.conf.old
+	"$CHOWN" -R squid:squid /etc/squid/
+
 }
 
 run() {
 	echo "Starting squid..."
 	prepare_folders
 	exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
-	echo Password set to: $PASSWORD
 }
 
 run
