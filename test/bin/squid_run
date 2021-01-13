@@ -4,23 +4,27 @@ set -e
 
 CHOWN=$(/usr/bin/which chown)
 CHMOD=$(/usr/bin/which chmod)
+MKDIR=$(/usr/bin/which mkdir)
+TOUCH=$(/usr/bin/which touch)
+CP=$(/usr/bin/which cp)
+HTPASSWD=$(/usr/bin/which htpasswd)
 SQUID=$(/usr/bin/which squid)
 
 prepare_folders() {
 	echo "Preparing folders..."
-	mkdir -p /etc/squid-cert/
-	mkdir -p /var/cache/squid/
-	mkdir -p /var/log/squid/
+	"$MKDIR" -p /etc/squid-cert/
+	"$MKDIR" -p /var/cache/squid/
+	"$MKDIR" -p /var/log/squid/
 	"$CHOWN" -R squid:squid /etc/squid-cert/
 	"$CHOWN" -R squid:squid /var/cache/squid/
 	"$CHOWN" -R squid:squid /var/log/squid/
 
-	touch /etc/squid/squidusers
-	htpasswd -c /etc/squid/squidusers vyurchenko
+	"$TOUCH" /etc/squid/squidusers
+	"$HTPASSWD" -c /etc/squid/squidusers vyurchenko
 	"$CHMOD" 440 /etc/squid/squidusers
 	"$CHOWN" -R squid:squid /etc/squid/squidusers
 
-	cp /etc/squid/squid.conf /etc/squid/squid.conf.old
+	"$CP" /etc/squid/squid.conf /etc/squid/squid.conf.old
 }
 
 run() {
