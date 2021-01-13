@@ -32,8 +32,9 @@ create_users_password() {
 		"$TOUCH" /etc/squid/squidusers
 		"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
 		"$CHMOD" 440 /etc/squid/squidusers
-		echo Password set to: $PASSWORD > /etc/squid/squidusers.txt
+		echo -e User set to: squidusers\nPassword set to: $PASSWORD > /etc/squid/squidusers.txt
 		"$CHMOD" 440 /etc/squid/squidusers.txt
+		"$CHOWN" -R squid:squid /etc/squid/
 	else
 		echo "Users password found..."
 	fi
