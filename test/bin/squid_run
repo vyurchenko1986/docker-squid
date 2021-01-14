@@ -14,11 +14,11 @@ SQUID=$(/usr/bin/which squid)
 prepare_folders() {
 	echo "Preparing folders..."
 	#"$MKDIR" -p /etc/squid-cert/
-	#"$MKDIR" -p /var/cache/squid/
-	#"$MKDIR" -p /var/log/squid/
+	"$MKDIR" -p /var/cache/squid/
+	"$MKDIR" -p /var/log/squid/
 	#"$CHOWN" -R squid:squid /etc/squid-cert/
-	#"$CHOWN" -R squid:squid /var/cache/squid/
-	#"$CHOWN" -R squid:squid /var/log/squid/
+	"$CHOWN" -R squid:squid /var/cache/squid/
+	"$CHOWN" -R squid:squid /var/log/squid/
 
 	"$CP" /etc/squid/squid.conf /etc/squid/squid.conf.old
 	"$CHOWN" -R squid:squid /etc/squid/
