@@ -25,6 +25,13 @@ prepare_folders() {
 
 }
 
+initialize_cache() {
+	echo "Creating cache folder..."
+	"$SQUID" -z
+
+	sleep 5
+}
+
 create_users_password() {
 	if [ ! -f /etc/squid/squidusers ]; then
 		echo "Creating users password..."
@@ -44,6 +51,7 @@ run() {
 	echo "Starting squid..."
 	prepare_folders
 	create_users_password
+	initialize_cache
 	exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
 }
 
