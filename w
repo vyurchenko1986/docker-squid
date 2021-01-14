@@ -91,3 +91,7 @@ docker run -d -p 9012:9012 --name=squid --restart=always -v $SQUID_DATA:/etc/squ
 ---
 mkdir -p /usr/share/squid/errors/
 ls -la /usr/share/squid/errors/
+
+---
+sudo nano /etc/ssh/sshd_config
+AddressFamily inet
