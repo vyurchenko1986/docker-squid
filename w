@@ -104,3 +104,6 @@ sudo cat /var/lib/docker/volumes/squid_data/_data/squidusers.txt
 
 ---
 find /var/log/ -type f -mtime -1 -exec tail -Fn0 {} +
+
+---
+https://aws.amazon.com/ru/blogs/security/how-to-add-dns-filtering-to-your-nat-instance-with-squid/
