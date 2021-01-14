@@ -96,3 +96,7 @@ ls -la /usr/share/squid/errors/
 sudo nano /etc/ssh/sshd_config
 AddressFamily inet
 sudo netstat -tlp
+
+---
+cd docker-squid/test/build/
+chmod +x build_in_container.sh && ./build_in_container.sh
