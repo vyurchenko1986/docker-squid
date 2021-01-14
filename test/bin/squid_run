@@ -10,7 +10,6 @@ CP=$(/usr/bin/which cp)
 
 HTPASSWD=$(/usr/bin/which htpasswd)
 SQUID=$(/usr/bin/which squid)
-PASSWORD=`tr -dc a-z0-9_ < /dev/urandom | head -c 16`
 
 prepare_folders() {
 	echo "Preparing folders..."
@@ -29,6 +28,7 @@ prepare_folders() {
 create_users_password() {
 	if [ ! -f /etc/squid/squidusers ]; then
 		echo "Creating users password..."
+		PASSWORD=`tr -dc a-z0-9_ < /dev/urandom | head -c 16`
 		"$TOUCH" /etc/squid/squidusers
 		"$HTPASSWD" -cb /etc/squid/squidusers squidusers "$PASSWORD"
 		"$CHMOD" 440 /etc/squid/squidusers
