@@ -98,8 +98,11 @@ AddressFamily inet
 sudo netstat -tlp
 
 ---
-cd docker-squid/test/build/
-chmod +x build_in_container.sh && ./build_in_container.sh
+cd /home/vyurchenko/data && \
+rm -rfv docker-squid/ && \
+git clone https://github.com/vyurchenko1986/docker-squid.git && \
+cd docker-squid/test/build/ && \
+chmod +x build_in_container.sh && ./build_in_container.sh && \
 sudo cat /var/lib/docker/volumes/squid_data/_data/squidusers.txt
 
 ---
