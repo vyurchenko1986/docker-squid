@@ -95,3 +95,4 @@ ls -la /usr/share/squid/errors/
 ---
 sudo nano /etc/ssh/sshd_config
 AddressFamily inet
+sudo netstat -tlp
