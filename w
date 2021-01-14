@@ -101,3 +101,6 @@ sudo netstat -tlp
 cd docker-squid/test/build/
 chmod +x build_in_container.sh && ./build_in_container.sh
 sudo cat /var/lib/docker/volumes/squid_data/_data/squidusers.txt
+
+---
+find /var/log/ -type f -mtime -1 -exec tail -Fn0 {} +
