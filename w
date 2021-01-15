@@ -117,4 +117,7 @@ https://dev-sec.io/baselines/docker/
 https://question-it.com/questions/540282/kak-zapustit-cron-kak-root-v-alpine
 https://github.com/gliderlabs/docker-alpine/issues/381#issuecomment-621946699
 
+---
 https://hub.docker.com/r/telegrammessenger/proxy
+docker run -d -p443:443 --name=mtproto-proxy --restart=always -v proxy-config:/data telegrammessenger/proxy:latest
+docker logs mtproto-proxy
