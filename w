@@ -115,3 +115,4 @@ https://aws.amazon.com/ru/blogs/security/how-to-add-dns-filtering-to-your-nat-in
 https://habr.com/ru/company/acribia/blog/448704/
 https://dev-sec.io/baselines/docker/
 https://question-it.com/questions/540282/kak-zapustit-cron-kak-root-v-alpine
+https://github.com/gliderlabs/docker-alpine/issues/381#issuecomment-621946699
