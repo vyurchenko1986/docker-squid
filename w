@@ -120,5 +120,7 @@ https://github.com/gliderlabs/docker-alpine/issues/381#issuecomment-621946699
 ---
 https://github.com/TelegramMessenger/MTProxy
 https://hub.docker.com/r/telegrammessenger/proxy
-docker run -d -p443:443 --name=mtproto-proxy --restart=always -v proxy-config:/data telegrammessenger/proxy:latest
+docker run -d -p 8888:8888 --name=mtproto-proxy --restart=always -v proxy-config:/data telegrammessenger/proxy:latest
 docker logs mtproto-proxy
+
+docker run -d -p 8888:443 --name=mtproto-proxy --restart=always -v mtproto_proxy_data:/data -e SECRET=XXXX -e TAG=XXX telegrammessenger/proxy:latest
