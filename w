@@ -110,3 +110,6 @@ find /var/log/ -type f -mtime -1 -exec tail -Fn0 {} +
 
 ---
 https://aws.amazon.com/ru/blogs/security/how-to-add-dns-filtering-to-your-nat-instance-with-squid/
+
+---
+https://habr.com/ru/company/acribia/blog/448704/
