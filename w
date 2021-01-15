@@ -113,3 +113,4 @@ https://aws.amazon.com/ru/blogs/security/how-to-add-dns-filtering-to-your-nat-in
 
 ---
 https://habr.com/ru/company/acribia/blog/448704/
+https://dev-sec.io/baselines/docker/
