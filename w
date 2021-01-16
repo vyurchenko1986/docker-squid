@@ -150,4 +150,5 @@ sudo iptables -L
 
 # sudo fail2ban-client set <jail> banip/unbanip <ip address>
 # For example
+sudo iptables -L f2b-sshd --line-numbers -v -n
 sudo fail2ban-client set sshd unbanip 83.136.253.43
