@@ -129,3 +129,25 @@ docker run -d -p 8888:443 --name=mtproto-proxy --restart=always -v mtproto_proxy
 Private Subnet
 Pulic Subnet
 Guest Subnet
+
+---
+https://upcloud.com/community/tutorials/install-fail2ban-debian/
+sudo apt install fail2ban
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo nano /etc/fail2ban/jail.local
+
+[DEFAULT]
+ignoreip = 127.0.0.1
+bantime  = 3600
+findtime = 600
+maxretry = 3
+
+[sshd]
+enabled = true
+
+sudo service fail2ban restart
+sudo iptables -L
+
+# sudo fail2ban-client set <jail> banip/unbanip <ip address>
+# For example
+sudo fail2ban-client set sshd unbanip 83.136.253.43
