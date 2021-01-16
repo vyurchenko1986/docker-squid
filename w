@@ -124,3 +124,8 @@ docker run -d -p 8888:8888 --name=mtproto-proxy --restart=always -v proxy-config
 docker logs mtproto-proxy
 
 docker run -d -p 8888:443 --name=mtproto-proxy --restart=always -v mtproto_proxy_data:/data -e SECRET=XXXX -e TAG=XXX telegrammessenger/proxy:latest
+
+---
+Private Subnet
+Pulic Subnet
+Guest Subnet
