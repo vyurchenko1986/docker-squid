@@ -162,12 +162,12 @@ cat /usr/local/bin/up
 #!/bin/bash
 # Ubuntu upgrade script
 echo "Lets Upgrade Begin!"
-sudo dpkg --configure -a
-sudo apt install -f -y
-sudo apt update
-sudo apt upgrade -y
-sudo apt dist-upgrade -y
-sudo purge-old-kernels -y
-sudo apt autoremove -y
+sudo dpkg --configure -a && \
+sudo apt install -f -y && \
+sudo apt update && \
+sudo apt upgrade -y && \
+sudo apt dist-upgrade -y && \
+sudo purge-old-kernels -y && \
+sudo apt autoremove -y && \
 sudo apt autoclean
 exit 0
