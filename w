@@ -159,7 +159,7 @@ https://wiki.yola.ru/grandstream/grandstream
 
 ---
 cat /usr/local/bin/up
-#!/bin/bash
+#!/usr/bin/env bash
 # Ubuntu upgrade script
 echo "Lets Upgrade Begin!"
 sudo dpkg --configure -a && \
