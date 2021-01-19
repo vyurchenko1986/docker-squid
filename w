@@ -197,6 +197,8 @@ sudo chmod +x /usr/local/bin/myip
 
 ---
 Mikrotik и Hairpin Nat
+https://wiki.rtzra.ru/software/mikrotik/mikrotik-hairpin-nat
+
 Hairpin nat - это когда требуется попасть из локальной сети на локальный же ресурс, но на маршрутизаторе трафик обрубается.
 В данном примере пробрасываем порты 80 и 443
 192.168.88.0/24 - наша подсеть
