@@ -158,7 +158,7 @@ sudo fail2ban-client set sshd unbanip 83.136.253.43
 https://wiki.yola.ru/grandstream/grandstream
 
 ---
-cat /usr/local/bin/up
+sudo nano /usr/local/bin/up
 #!/usr/bin/env bash
 # Ubuntu upgrade script
 echo "Lets Upgrade Begin!"
@@ -172,8 +172,9 @@ sudo apt autoremove -y && \
 sudo apt autoclean
 exit 0
 
+sudo chmod +x /usr/local/bin/up
 ---
-cat /usr/local/bin/myip.sh 
+sudo nano /usr/local/bin/myip
 #!/usr/bin/env bash
 
 IP="$(curl -s -4 "https://digitalresistance.dog/myIp")"
@@ -191,3 +192,5 @@ fi
 
 echo "[*]   External IP: $IP"
 echo "[*]   Internal IP: $INTERNAL_IP"
+
+sudo chmod +x /usr/local/bin/myip
