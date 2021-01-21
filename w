@@ -213,3 +213,29 @@ add chain=dstnat action=dst-nat to-addresses=192.168.88.5 protocol=tcp src-addre
 
 ---
 sudo lsof -i
+
+---
+https://wiki.yola.ru/grandstream/grandstream
+http://www.grandstream.com/support/tools
+http://firmware.grandstream.com/Release_Note_GXP16xx_1.0.7.6.pdf
+http://www.grandstream.com/sites/default/files/Faq/gs_provisioning_guide_public.pdf
+http://www.grandstream.com/sites/default/files/Resources/config-template.zip
+http://www.grandstream.com/sites/default/files/Resources/xml_configuration_file_generator_v1.8.zip
+
+
+cfg000b82f81d21.xml:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<gs_provision version="1">
+    <mac>000b82f81d21</mac>
+    <config version="1">
+        <P271>1</P271>
+        <P270>323 Valery Yurchenko</P270>
+        <P47>ats.primary.study.com</P47>
+        <P2312>ats.secondary.study.com</P2312>
+        <P35>323</P35>
+        <P36>323</P36>
+        <P34>1fa4ff50wewe60sdsd</P34>
+        <P3>Valery Yurchenko</P3>
+    </config>
+</gs_provision>
