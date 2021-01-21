@@ -239,3 +239,5 @@ cfg000b82f81d21.xml:
         <P3>Valery Yurchenko</P3>
     </config>
 </gs_provision>
+
+openssl enc –e –aes-256-cbc –k password –in config.xml –out cfg000b82f81d21.xml
