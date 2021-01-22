@@ -263,6 +263,31 @@ $mkdir folder="tftp"
 set ftp disabled=yes address=""
 
 --
+/interface bridge
+add comment="Private Subnet:" name=bridge
+
+/interface bridge port
+add bridge=bridge interface=ether2
+
+/ip address
+add address=10.7.0.254/24 comment="Private Subnet:" interface=bridge network=10.7.0.0
+
+/ip pool
+add comment="Private Subnet:" name=pool1 ranges=10.7.0.1-10.7.0.253
+
+/ip dhcp-server
+add address-pool=pool1 disabled=no interface=bridge name=dhcp1
+
+/ip dhcp-server option
+add code=66 name=Provisioning_66 value="s'10.7.0.254'"
+add code=43 name=Provisioning_43 value="s'10.7.0.254'"
+
+/ip dhcp-server option sets
+add name=SIP options=Provisioning_43,Provisioning_66
+
+/ip dhcp-server network
+add address=10.7.0.0/24 comment="Private Subnet:" dhcp-option-set=SIP dns-server=1.1.1.1,9.9.9.9 gateway=10.7.0.254
+
 /ip tftp
 add ip-addresses=10.7.0.0/24 real-filename=tftp/ req-filename=.*
 
