@@ -356,3 +356,6 @@ sudo systemctl restart ssh
 sudo usermod -aG sudo owner
 sudo whoami
 echo "%sudo ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/owner
+
+---
+touch `date +%Y%m%d-%H%M%S`
