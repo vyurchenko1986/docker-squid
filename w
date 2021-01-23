@@ -333,3 +333,26 @@ sudo docker pull portainer/portainer-ce
 sudo docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 sudo docker ps
+
+---
+=-=-=-=-=-=
+SSH:
+=-=-=-=-=-=
+sudo adduser owner
+id owner
+ls -lad /home/owner/
+passwd owner
+
+sudo ssh-keygen -b 4096
+cat public-key.pub | ssh owner@192.168.0.100 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+sudo nano /etc/ssh/sshd_config
+PasswordAuthentication no
+PermitRootLogin no
+Protocol 2
+
+sudo systemctl restart ssh
+
+sudo usermod -aG sudo owner
+sudo whoami
+echo "%sudo ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/owner
