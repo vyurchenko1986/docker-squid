@@ -295,6 +295,7 @@ openssl enc –e –aes-256-cbc –k password –in config.xml –out cfg000b82f
 
 ---
 https://serveradmin.ru/zablokirovat-dostup-k-kontejneram-docker-iz-interneta/
+http://vasilisc.com/21-examples-iptables
 
 sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 8000 -s 77.120.163.57/32 -j ACCEPT
 sudo iptables -I DOCKER-USER 2 -i eth0 -p tcp --dport 9000 -s 77.120.163.57/32 -j ACCEPT
