@@ -291,4 +291,45 @@ add address=10.7.0.0/24 comment="Private Subnet:" dhcp-option-set=SIP dns-server
 /ip tftp
 add ip-addresses=10.7.0.0/24 real-filename=tftp/ req-filename=.*
 
-openssl enc –e –aes-256-cbc –k password –in config.xml –out cfg000b82f81d21.xml
+openssl enc –e –aes-256-cbc –k password –in config.xml –out cfg000b82f81d21.
+
+---
+https://serveradmin.ru/zablokirovat-dostup-k-kontejneram-docker-iz-interneta/
+
+sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 8000 -s 77.120.163.57/32 -j ACCEPT
+sudo iptables -I DOCKER-USER 2 -i eth0 -p tcp --dport 9000 -s 77.120.163.57/32 -j ACCEPT
+sudo iptables -I DOCKER-USER 3 -i eth0 -p tcp --dport 8000 -j DROP
+sudo iptables -I DOCKER-USER 4 -i eth0 -p tcp --dport 9000 -j DROP
+
+---
+=-=-=-=-=-=
+docker:
+=-=-=-=-=-=
+https://evilinside.ru/docker-cleanup-ochistka-docker/
+
+sudo docker system // посмотреть доступные команды
+sudo docker system df // получить статистику о docker-окружении
+sudo docker system prune // очиститься
+
+sudo docker system df
+sudo docker system prune -a
+sudo docker image prune
+sudo docker container prune
+
+---
+=-=-=-=-=-=
+portainer:
+=-=-=-=-=-=
+https://documentation.portainer.io/v2.0/deploy/linux/
+
+sudo docker stop portainer
+
+sudo docker system prune -a && \
+sudo docker image prune && \
+sudo docker container prune
+
+sudo docker pull portainer/portainer-ce
+
+sudo docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+sudo docker ps
