@@ -432,3 +432,13 @@ echo "%sudo ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/owner
 
 ---
 touch `date +%Y%m%d-%H%M%S`
+
+---
+https://zalinux.ru/?p=4244
+https://hackware.ru/?p=8215
+
+#Зашифровать данные:
+openssl enc -aes-256-cbc -pbkdf2 -in art.txt -out art.txt.enc -iter 1986000
+
+#Расшифровать данные:
+openssl enc -aes-256-cbc -pbkdf2 -d -in art.txt.enc -out art-new.txt -iter 1986000
