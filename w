@@ -227,7 +227,6 @@ https://help.mobilon.ru/equipment/ip/grandstream-gxp16xx/
 cfg000b82f81d21.xml:
 
 <!--  Configuration Template For GXP1610/1620/1625/1628/1630 -->
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <gs_provision version="1">
     <mac>000b82f81d21</mac>
@@ -239,31 +238,28 @@ cfg000b82f81d21.xml:
         <P2312>ats.secondary.study.com</P2312> <!-- Secondary SIP Server -->
         <P35>323</P35> <!-- SIP User ID -->
         <P36>323</P36> <!-- Authenticate ID -->
-        <P34>1fa4ff5000236060</P34> <!-- Authenticate Password -->
+        <P34>1fa4ff500023f</P34> <!-- Authenticate Password -->
         <P3>Юрченко Валерий</P3> <!-- Name -->
-
         <!-- ###  Account 1/Network Settings ### -->
         <P52>2</P52> <!-- NAT Traversal. 0 - No, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN. Default is 0. -->
+        <!-- ### Account 1/SIP Settings/Basic Settings ### -->
+        <P32>5</P32> <!-- Register Expiration (in minutes). Default is 60. Max about 45 days -->
+        <P2397>1</P2397> <!-- Enable OPTIONS Keep Alive -->
+        <!-- ### Account 1/Call Settings ### -->
+        <P129>1</P129> <!-- Anonymous Call Rejection. 0 - No, 1 - Yes. Default is 0 -->
+        <!-- ### Account 1/SIP Settings/Security Settings ### -->
+        <P2347>1</P2347> <!-- Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
+
 
         <!-- ###  Settings/General Settings ### -->
         <P78>1</P78> <!-- Use Random Port. 0 - No, 1 - Yes. Default is 0 -->
 
-        <!-- ### Account 1/SIP Settings/Basic Settings ### -->
-        <P32>5</P32> <!-- Register Expiration (in minutes). Default is 60. Max about 45 days -->
-        <P2397>1<P2397> <!-- Enable OPTIONS Keep Alive -->
-
-        <!-- ### Account 1/Call Settings ### -->
-        <P129>1</P129> <!-- Anonymous Call Rejection. 0 - No, 1 - Yes. Default is 0 -->
-
-        <!-- ### Account 1/SIP Settings/Security Settings ### -->
-        <P2347>1</P2347> <!-- Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
-
         <!-- ### Settings/Call Features ### -->
-        <P91>1</P91> <!-- Disable Call Waiting. 0 - No, 1 - Yes. Default is 0 -->
+        <P91>0</P91> <!-- Disable Call Waiting. 0 - No, 1 - Yes. Default is 0 -->
 
         <!-- ### Maintenance/Upgrade and Provisioning ### -->
         <P212>0</P212> <!-- Config Upgrade Via. 0 - TFTP -->
-        <P1359></P1359> <!-- XML Config File Password -->
+        <P1359>Password</P1359> <!-- XML Config File Password -->
         <P240>0</P240> <!-- Authenticate Conf File. 0 - No, 1 - Yes. -->
 
         <!-- ### Network/Basic Settings ### -->
@@ -273,7 +269,6 @@ cfg000b82f81d21.xml:
 
         <!-- ### Network/Advanced Settings ### -->
         <P229>20</P229> <!-- PC Port VLAN Tag -->
-
         <!-- ### Maintenance/Language ### -->
         <P1362>ru</P1362> <!-- Display Language. Default is auto -->
 
@@ -285,7 +280,6 @@ cfg000b82f81d21.xml:
         <P246>EET-2EEST,M3.5.0/3,M10.5.0/4</P246> <!-- Self Defined Time zone. Max length allowed is 64 characters -->
         <P102>2</P102> <!-- Date Display Format -->
         <P122>1</P122> <!-- Time Display Format. 0 - 12 Hour, 1 - 24 Hour -->
-
     </config>
 </gs_provision>
 
