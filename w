@@ -221,22 +221,71 @@ http://firmware.grandstream.com/Release_Note_GXP16xx_1.0.7.6.pdf
 http://www.grandstream.com/sites/default/files/Faq/gs_provisioning_guide_public.pdf
 http://www.grandstream.com/sites/default/files/Resources/config-template.zip
 http://www.grandstream.com/sites/default/files/Resources/xml_configuration_file_generator_v1.8.zip
+https://help.mobilon.ru/equipment/ip/grandstream-gxp16xx/
 
 
 cfg000b82f81d21.xml:
+
+<!--  Configuration Template For GXP1610/1620/1625/1628/1630 -->
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <gs_provision version="1">
     <mac>000b82f81d21</mac>
     <config version="1">
-        <P271>1</P271>
-        <P270>323 Valery Yurchenko</P270>
-        <P47>ats.primary.study.com</P47>
-        <P2312>ats.secondary.study.com</P2312>
-        <P35>323</P35>
-        <P36>323</P36>
-        <P34>1fa4ff50wewe60sdsd</P34>
-        <P3>Valery Yurchenko</P3>
+        <!-- ### Account 1/General Settings ### -->
+        <P271>1</P271> <!--Account Active. 0 - No, 1 - Yes.-->
+        <P270>323 Юрченко Валерий</P270> <!-- Account Name -->
+        <P47>ats.primary.study.com</P47> <!-- SIP Server -->
+        <P2312>ats.secondary.study.com</P2312> <!-- Secondary SIP Server -->
+        <P35>323</P35> <!-- SIP User ID -->
+        <P36>323</P36> <!-- Authenticate ID -->
+        <P34>1fa4ff5000236060</P34> <!-- Authenticate Password -->
+        <P3>Юрченко Валерий</P3> <!-- Name -->
+
+        <!-- ###  Account 1/Network Settings ### -->
+        <P52>2</P52> <!-- NAT Traversal. 0 - No, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN. Default is 0. -->
+
+        <!-- ###  Settings/General Settings ### -->
+        <P78>1</P78> <!-- Use Random Port. 0 - No, 1 - Yes. Default is 0 -->
+
+        <!-- ### Account 1/SIP Settings/Basic Settings ### -->
+        <P32>5</P32> <!-- Register Expiration (in minutes). Default is 60. Max about 45 days -->
+        <P2397>1<P2397> <!-- Enable OPTIONS Keep Alive -->
+
+        <!-- ### Account 1/Call Settings ### -->
+        <P129>1</P129> <!-- Anonymous Call Rejection. 0 - No, 1 - Yes. Default is 0 -->
+
+        <!-- ### Account 1/SIP Settings/Security Settings ### -->
+        <P2347>1</P2347> <!-- Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
+
+        <!-- ### Settings/Call Features ### -->
+        <P91>1</P91> <!-- Disable Call Waiting. 0 - No, 1 - Yes. Default is 0 -->
+
+        <!-- ### Maintenance/Upgrade and Provisioning ### -->
+        <P212>0</P212> <!-- Config Upgrade Via. 0 - TFTP -->
+        <P1359></P1359> <!-- XML Config File Password -->
+        <P240>0</P240> <!-- Authenticate Conf File. 0 - No, 1 - Yes. -->
+
+        <!-- ### Network/Basic Settings ### -->
+        <P146>SIP-STUDY</P146> <!-- Host name  -->
+        <P1415>2</P1415> <!-- Internet Protocol. IPv4 Only -->
+        <P8>0</P8> <!-- IP Address Mode. DHCP -->
+
+        <!-- ### Network/Advanced Settings ### -->
+        <P229>20</P229> <!-- PC Port VLAN Tag -->
+
+        <!-- ### Maintenance/Language ### -->
+        <P1362>ru</P1362> <!-- Display Language. Default is auto -->
+
+        <!-- ### Settings/Preferences/Date and Time ### -->
+        <P30>ua.pool.ntp.org</P30> <!-- NTP Server -->
+        <P144>1</P144> <!-- Allow DHCP Option 42 to override NTP server. 0 - No, 1 - Yes. Default is 1 -->
+        <P64>EET-2EEST,M3.5.0/3,M10.5.0/4</P64> <!-- Time Zone -->
+        <P143>1</P143> <!-- Allow DHCP Option 2 to override Time Zone setting. 0 - No, 1 - Yes. Default is 1 -->
+        <P246>EET-2EEST,M3.5.0/3,M10.5.0/4</P246> <!-- Self Defined Time zone. Max length allowed is 64 characters -->
+        <P102>2</P102> <!-- Date Display Format -->
+        <P122>1</P122> <!-- Time Display Format. 0 - 12 Hour, 1 - 24 Hour -->
+
     </config>
 </gs_provision>
 
