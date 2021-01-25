@@ -437,7 +437,7 @@ touch `date +%Y%m%d-%H%M%S`
 https://zalinux.ru/?p=4244
 https://hackware.ru/?p=8215
 https://losst.ru/shifrovanie-fajlov-i-papok-v-linux
-
+https://vds-admin.ru/unix-toolbox/files-crypting
 
 #Зашифровать данные:
 openssl enc -aes-256-cbc -pbkdf2 -in art.txt -out art.txt.enc -iter 1986000
