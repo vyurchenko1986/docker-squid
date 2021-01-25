@@ -231,14 +231,16 @@ cfg000b82f81d21.xml:
 <gs_provision version="1">
     <mac>000b82f81d21</mac>
     <config version="1">
+        <!-- ############################################################### -->
         <!-- ### Account 1/General Settings ### -->
+        <!-- ############################################################### -->
         <P271>1</P271> <!--Account Active. 0 - No, 1 - Yes.-->
         <P270>323 Юрченко Валерий</P270> <!-- Account Name -->
         <P47>ats.primary.study.com</P47> <!-- SIP Server -->
         <P2312>ats.secondary.study.com</P2312> <!-- Secondary SIP Server -->
         <P35>323</P35> <!-- SIP User ID -->
         <P36>323</P36> <!-- Authenticate ID -->
-        <P34>1fa4ff500023f</P34> <!-- Authenticate Password -->
+        <P34>Password</P34> <!-- Authenticate Password -->
         <P3>Юрченко Валерий</P3> <!-- Name -->
         <!-- ###  Account 1/Network Settings ### -->
         <P52>2</P52> <!-- NAT Traversal. 0 - No, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN. Default is 0. -->
@@ -250,6 +252,27 @@ cfg000b82f81d21.xml:
         <!-- ### Account 1/SIP Settings/Security Settings ### -->
         <P2347>1</P2347> <!-- Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
 
+        <!-- ############################################################### -->
+        <!-- ### Account 2/General Settings ### -->
+        <!-- ############################################################### -->
+        <P401>1</P401> <!--Account Active. 0 - No, 1 - Yes.-->
+        <P417>3230 Юрченко Валерий</P417> <!-- Account Name -->
+        <P402>ats.primary.study.com</P402> <!-- SIP Server -->
+        <P2412>ats.secondary.study.com</P2412> <!-- Secondary SIP Server -->
+        <P404>3230</P404> <!-- SIP User ID -->
+        <P405>3230</P405> <!-- Authenticate ID -->
+        <P406>Password</P406> <!-- Authenticate Password -->
+        <P407>Юрченко Валерий</P407> <!-- Name -->
+        <!-- ###  Account 1/Network Settings ### -->
+        <P414>2</P414> <!-- NAT Traversal. 0 - No, 1 - STUN, 2 - keep alive, 3 - UPnP, 4 - Auto, 5 - VPN. Default is 0. -->
+        <!-- ### Account 1/SIP Settings/Basic Settings ### -->
+        <P412>5</P412> <!-- Register Expiration (in minutes). Default is 60. Max about 45 days -->
+        <P2497>1</P2497> <!-- Enable OPTIONS Keep Alive -->
+        <!-- ### Account 1/Call Settings ### -->
+        <P446>1</P446> <!-- Anonymous Call Rejection. 0 - No, 1 - Yes. Default is 0 -->
+        <!-- ### Account 1/SIP Settings/Security Settings ### -->
+        <P2447>1</P2447> <!-- Accept Incoming SIP from Proxy Only. 0 - No, 1 - Yes. Default is 0 -->
+        <!-- ############################################################### -->
 
         <!-- ###  Settings/General Settings ### -->
         <P78>1</P78> <!-- Use Random Port. 0 - No, 1 - Yes. Default is 0 -->
@@ -268,7 +291,9 @@ cfg000b82f81d21.xml:
         <P8>0</P8> <!-- IP Address Mode. DHCP -->
 
         <!-- ### Network/Advanced Settings ### -->
+        <P1348>0</P1348> <!-- PC Port Mode. 0 - Enable, 1 - Disabled, 2 - Mirrored. Default is 0 -->
         <P229>20</P229> <!-- PC Port VLAN Tag -->
+
         <!-- ### Maintenance/Language ### -->
         <P1362>ru</P1362> <!-- Display Language. Default is auto -->
 
@@ -280,6 +305,10 @@ cfg000b82f81d21.xml:
         <P246>EET-2EEST,M3.5.0/3,M10.5.0/4</P246> <!-- Self Defined Time zone. Max length allowed is 64 characters -->
         <P102>2</P102> <!-- Date Display Format -->
         <P122>1</P122> <!-- Time Display Format. 0 - 12 Hour, 1 - 24 Hour -->
+
+        <!-- ### Maintenance/ Web Access ### -->
+        <P196>Password</P196> <!-- New User Password -->
+        <P2>Password</P2> <!-- New Admin password for web interface -->
     </config>
 </gs_provision>
 
