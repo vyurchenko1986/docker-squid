@@ -131,6 +131,7 @@ Pulic Subnet
 Guest Subnet
 
 ---
+https://serveradmin.ru/nastroyka-servera-telefonii-asterisk-s-nulya/#Zasita_asterisk_s_pomosu_fail2ban
 https://upcloud.com/community/tutorials/install-fail2ban-debian/
 sudo apt install fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
