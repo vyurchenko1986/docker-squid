@@ -147,6 +147,7 @@ maxretry = 3
 [sshd]
 enabled = true
 
+sudo systemctl enable fail2ban
 sudo service fail2ban restart
 sudo iptables -L
 
