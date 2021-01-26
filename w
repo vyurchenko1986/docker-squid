@@ -132,6 +132,7 @@ Guest Subnet
 
 ---
 https://serveradmin.ru/nastroyka-servera-telefonii-asterisk-s-nulya/#Zasita_asterisk_s_pomosu_fail2ban
+http://wiki.pro-voip.ru/fail2ban/asterisk-fail2ban.html
 https://upcloud.com/community/tutorials/install-fail2ban-debian/
 sudo apt install fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
@@ -152,8 +153,19 @@ sudo iptables -L
 # sudo fail2ban-client set <jail> banip/unbanip <ip address>
 # For example
 sudo iptables -L f2b-sshd --line-numbers -v -n
-sudo iptables -L f2b-sshd --line-numbers -v -n | grep 88.155.96.38
-sudo fail2ban-client set sshd unbanip 83.136.253.43
+sudo iptables -L f2b-sshd --line-numbers -v -n | grep 138.201.90.212
+sudo fail2ban-client set sshd unbanip 138.201.90.212
+
+--
+nano /etc/asterisk/logger_logfiles_custom.conf
+messages => notice,warning,error
+asterisk -rx "logger reload"
+sudo service fail2ban restart
+sudo iptables -L f2b-asterisk-tcp --line-numbers -v -n
+sudo iptables -L f2b-asterisk-udp --line-numbers -v -n
+sudo iptables -L f2b-asterisk-tcp --line-numbers -v -n | grep 138.201.90.212
+sudo iptables -L f2b-asterisk-udp --line-numbers -v -n | grep 138.201.90.212
+sudo fail2ban-client set asterisk unbanip 138.201.90.212
 
 ---
 https://wiki.yola.ru/grandstream/grandstream
