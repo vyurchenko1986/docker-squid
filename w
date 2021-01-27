@@ -135,6 +135,7 @@ https://serveradmin.ru/nastroyka-servera-telefonii-asterisk-s-nulya/#Zasita_aste
 http://wiki.pro-voip.ru/fail2ban/asterisk-fail2ban.html
 https://upcloud.com/community/tutorials/install-fail2ban-debian/
 https://www.k7d.ru/it/fail2ban-uvedomleniya-v-telegram/
+https://blog.mypapit.net/2015/08/how-to-send-fail2ban-notification-with-telegram-telegram-cli.html
 
 sudo apt install fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
