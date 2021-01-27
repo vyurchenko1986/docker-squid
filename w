@@ -458,3 +458,6 @@ openssl enc -aes-256-cbc -pbkdf2 -in art.txt -out art.txt.enc -iter 1986000
 
 #Расшифровать данные:
 openssl enc -aes-256-cbc -pbkdf2 -d -in art.txt.enc -out art-new.txt -iter 1986000
+
+cryptsetup luks
+https://www.dkws.org.ua/article.php?id=77
