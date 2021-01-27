@@ -461,3 +461,6 @@ openssl enc -aes-256-cbc -pbkdf2 -d -in art.txt.enc -out art-new.txt -iter 19860
 
 cryptsetup luks
 https://www.dkws.org.ua/article.php?id=77
+
+---
+https://proglib.io/p/socks5-proxy
