@@ -467,3 +467,8 @@ https://www.dkws.org.ua/article.php?id=77
 
 ---
 https://proglib.io/p/socks5-proxy
+
+---
+sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 9000 -s 46.200.73.236/32 -j ACCEPT
+sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 9000 -s 82.117.245.78/32 -j ACCEPT
+sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 9000 -s 2.57.39.33/32 -j ACCEPT
