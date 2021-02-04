@@ -475,3 +475,6 @@ sudo iptables -I DOCKER-USER 1 -i eth0 -p tcp --dport 9000 -s 2.57.39.33/32 -j A
 
 ---
 https://medium.com/skilluped/10-tips-on-writing-a-proper-dockerfile-13956ceb435f
+
+---
+https://www.navicat.com/en/products/navicat-for-mysql
