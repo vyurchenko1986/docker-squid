@@ -478,3 +478,4 @@ https://medium.com/skilluped/10-tips-on-writing-a-proper-dockerfile-13956ceb435f
 
 ---
 https://www.navicat.com/en/products/navicat-for-mysql
+https://1wire.com.ua/smart-home/
