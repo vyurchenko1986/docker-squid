@@ -489,3 +489,21 @@ https://medium.com/html-boy/%D0%B8%D0%B7-%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0
 
 ---
 https://itisgood.ru/tag/nginx/
+
+---
+Установите dmg2img:
+sudo apt-get install dmg2img
+
+Конвертировать файл изображения DMG в файл ISO
+dmg2img -v -i /path/to/image_file.dmg -o /path/to/image_file.iso
+
+Скопируйте ISO-образ на USB:
+sudo dd if=/path/to/image_file.iso of=/dev/sdb && sync
+
+SDB является примером . В вашем случае это может быть иначе
+
+редактировать
+Вы можете выполнить преобразование и фактическую запись за один проход, если впоследствии вам не понадобится .iso: преобразование в .iso и ТО затем запись на USB-устройство займет половину времени. Просто сделать:
+
+sudo dmg2img -v -i /path/to/image_file.dmg -o /dev/sdb
+Опять же, SDB является примером . В вашем случае это может быть иначе.
