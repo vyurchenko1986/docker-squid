@@ -507,3 +507,10 @@ SDB является примером . В вашем случае это мож
 
 sudo dmg2img -v -i /path/to/image_file.dmg -o /dev/sdb
 Опять же, SDB является примером . В вашем случае это может быть иначе.
+
+---
+https://vitux.com/how-to-encrypt-cloud-storage-with-encfs-on-ubuntu/
+mkdir ~/Dropbox/Encrypted/
+mkdir ~/Private
+
+encfs ~/Dropbox/Encrypted/ ~/Private
