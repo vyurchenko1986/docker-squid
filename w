@@ -511,3 +511,4 @@ sudo dmg2img -v -i /path/to/image_file.dmg -o /dev/sdb
 ---
 https://vitux.com/how-to-encrypt-cloud-storage-with-encfs-on-ubuntu/
 encfs ~/Dropbox/'Private Encrypted Data' ~/'Private Data'
+sudo umount '/home/vyurchenko/Private Data'
