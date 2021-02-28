@@ -423,6 +423,20 @@ sudo docker pull portainer/portainer-ce
 sudo docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 sudo docker ps
+---
+sudo apt-get purge docker-ce docker-ce-cli containerd.io
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+
+sudo apt-cache madison docker-ce
+sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
+
+sudo apt-get install docker-ce=5:20.10.3~3-0~debian-buster docker-ce-cli=5:20.10.3~3-0~debian-buster containerd.io
+sudo apt-mark hold docker-ce docker-ce-cli docker.io
+
+sudo usermod -aG docker owner
+
+https://eax.me/debian-packages/
 
 ---
 =-=-=-=-=-=
