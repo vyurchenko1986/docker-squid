@@ -433,7 +433,7 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 
 sudo apt-get install docker-ce=5:20.10.3~3-0~debian-buster docker-ce-cli=5:20.10.3~3-0~debian-buster containerd.io
 sudo apt-mark hold docker-ce docker-ce-cli docker.io
-
+*sudo apt-mark unhold docker-ce docker-ce-cli docker.io
 sudo usermod -aG docker owner
 
 https://eax.me/debian-packages/
