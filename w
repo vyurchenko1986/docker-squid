@@ -531,3 +531,10 @@ encfs ~/Dropbox/'Private Encrypted Data' ~/'Private Data'
 mount | grep 'Private Data'
 df -hT | grep 'Private Data'
 sudo umount '/home/vyurchenko/Private Data'
+
+---
+Online Tools
+https://jsonlint.com/ - Синтаксис JSON
+http://www.yamllint.com/ - Синтаксис YAML
+https://www.hcl2json.com/ - Конвертор
+https://regex101.com/ - Регулярные Выражения
